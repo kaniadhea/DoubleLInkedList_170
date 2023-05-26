@@ -193,5 +193,13 @@ int main() {
 			case '3':
 				obj.traverse();
 			case'4':
+				obj.revtraverse();
+			case '5' :
+				obj.searchData();
+				break;
+			case'6' :
+				return 0;
+			default: 
+				cout << "\nInvalid option" << endl;
 
 			}
