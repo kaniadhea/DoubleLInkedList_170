@@ -129,8 +129,52 @@ void DoubleLinkedList :: revtraverse() {
 		while (currentNode->next != NULL)
 			currentNode = currentNode->next;
 
-		while (currentNode != NuLL) {
-			cout << currentNode->
+		while (currentNode != NULL) {
+			cout << currentNode->noMhs << "" << currentNode->next << endl;
+			currentNode = currentNode->prev;
+
 		}
 	}
 }
+void DoubleLinkedList::hapus() {
+	if (listEmpty()) {
+		cout << "\nList is empty" << endl;
+
+	}
+	cout << "\nEnter the roll number of the student whose record is to be deleted:";
+	int rollNo;
+	cin >> rollNo;
+	cout << endl;
+	if (DoubleLinkedList::DeleteNode(rollNo) == false)
+		cout << "Record not found" << endl;
+	else
+		cout << "Record with roll number" << rollNo << "deleted" << endl;
+}
+void DoubleLinkedList::searchData() {
+	if (listEmpty() == true) {
+		cout << "\nList is empty" << endl;
+
+	}
+	Node* prev, * curr;
+	prev = curr = NULL;
+	cout << "\nEnter the roll number of the student whose record you want to search: ";
+	int num;
+	cin >> num;
+	if (DoubleLinkedList::search(num, &prev, &curr) == false)
+		cout << "\nRecord not found" << endl:
+	else {
+		cout << "\nRecord found" << endl;
+		cout << "\nRoll number: " << curr->noMhs << endl;
+		cout << "\nName: " << curr->name << endl;
+	}
+}
+
+int main() {
+	DoubleLinkedList obj;
+	while (true) {
+		try {
+			cout << "\nMenu" << endl;
+			cout << "1. Add a record to the list" << endl;
+			cout << "2. Delete a record from the list" << endl;
+			cout << "3. View all records iin the ascending order off roll numbers" << endl;
+			cout << "4. View all records " << endl;
